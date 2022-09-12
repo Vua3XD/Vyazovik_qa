@@ -1,1 +1,50 @@
+def test1():
+    t1 = 6
+    t2 = 6
+    assert t1 == t2
+
+
+def test2():
+    set1 = {10, 100, 50}
+    assert 10 in set1
+
+
+def test3():
+    dict1 = {'a': 10, 50: 100}
+    assert dict1['a'] == 10
+
+
+def test4():
+    dict2 = {1: 2, 2: 4, 4: 'res'}
+    assert dict2[4] == 'res'
+
+
+def test5():
+    set2 = {-100, -1, 0, 1, 100}
+    for i in set2:
+        count = 0
+
+        if i % 2 == 0:
+            count += 1
+        else:
+            count -= 1
+    assert count == -1
+
+
+def test6():
+    a = 5
+    b = 0
+    try:
+        assert a / b
+    except ZeroDivisionError:
+        pass
+
+
+import pytest
+
+
+@pytest.mark.parametrize("test_input,expected", [("-100%2", 0), ("-1%2", 1), ("0%2", 0), ("1%2", 1), ("100%2", 0)])
+def test_eval(test_input, expected):
+    assert eval(test_input) == expected
+
 
